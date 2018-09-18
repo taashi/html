@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+	<!-- Metadata -->
+	<head>
+		<title>Ultra Music Festival - Home Page</title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Stylesheet Imports (Local and MAps) -->
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+         crossorigin=""/>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		
+		<!-- Script Imports (Local and MAps) --> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+         integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+         crossorigin=""></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+	</head>
+	
+	<!-- Visible Content of the page -->
+	<body>
+		<!-- Navbar --> 
+		<div id="nav">
+            <!--Creating a list of the elements of the navbar-->
+			<ul id="navbar">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class="events"><a href="Events.html">Events</a></li>
+				<li id="register"><a href="Register.htm">Register</a></li>
+			<ul>
+		</div>
+	
+		<!-- Main page content and events -->
+		<div id="cover">
+            <div id="content">
+                <h1>Ultra Music Festival</h1>
+                <p>Come and join us in the  most <br><span class="important">Thrilling</span> and <span class="important">Exciting</span> music event of the year.</p>
+            </div>
+		</div>
+                
+        <!-- Main Events -->
+        <div id="panel" class="container-fluid">
+            <!-- Event Page -->
+            <div class="col-sm-8">
+                <div id="featured">
+                    <h4>Top Attractions</h4>
+                </div>
+				
+	
+                <!-- Artists Cards -->
+                <!--Rap Card-->
+                <div id="cards" class = "row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                           <img src="images/news/rap.jpg" alt="Rap music is the only vital form of music introduced since punk rock" />
+                            <h5>Let's rock the party with some rap</h5> 
+                            <h6>16th September'19</h6>
+                            <h4>Welcome to the rapbasement</h4>
+                            <p>Let Drake,Eminem and Wiz Khalifa blow your mind off with their greatest rap collection! Click on the Register button to get your tickets before they are sold out!</p>
+                        </div>
+                    </div>
+
+                    <!--Jazz Card-->
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <img src="images/news/jazz.jpg" alt="Jazz players do it standing up" />
+                            <h5>Best Jazz Musicians from all over the world</h5>
+                            <h6>17th September'19</h6>
+                            <h4>Groove to Jazz!</h4>
+                            <p>Excellent display of orchestra skills by the finest jazz players! Click on the Register button to get your tickets before they are sold out!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blues Card -->
+                <div id="cards" class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <img src="images/news/blues.jpg" alt="Blues player taking your weekdays blues away" />
+                            <h5>Best BLues in town</h5>
+                            
+                            <h6>18th September'19</h6>
+                            <h4>Let's take your blues away..</h4>
+                            <p>Welcome to the finest artists of blues music!Click on the Register button to get your tickets before they are sold out!</p>
+                        </div>
+                    </div>
+
+                    <!--DJ Card-->
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <img src="images/news/dj.jpg" alt="put on your dancing shoes" />
+                            <h5>Groove to the best DJ's </h5>
+                            <h6>19th September'19</h6>
+                            <h4>DJ's Triumph!</h4>
+                            <p>Put on your dancing shoes & dance the night away!Click on the Register button to get your tickets before they are sold out!</p>
+                        </div>
+                    </div>		
+                </div>
+
+
+                <hr>
+                <!--Map section-->
+                <div id="map-section">
+				 <h2> Find the best performers here</h2>
+				<div id="mapLeaflet" style="width:850px; height:700px">
+				</div>
+				<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+				<script> 
+				var mymap = L.map('mapLeaflet').setView([25.7616798,-80.1917902], 13); 
+				L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGFhc2hpIiwiYSI6ImNqbTR5MndlZTFvbnkzcW15cWlsN3J6aWoifQ.Th_UPb4jT_GVOY5rEyqxGw', { 
+				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+				maxZoom : 18,
+				id: 'mapbox.streets', 
+				accessToken: 'pk.eyJ1IjoidGFhc2hpIiwiYSI6ImNqbTR5MndlZTFvbnkzcW15cWlsN3J6aWoifQ.Th_UPb4jT_GVOY5rEyqxGw'  }).addTo(mymap); 
+				var marker = L.marker([25.7616798 ,-80.1917902]).addTo(mymap);</script>   
+                </div>
+            </div>
+            
+            <!-- Schedule Table -->
+            <div class="col-sm-4">
+                <div id="standing">
+                    <!-- Schedule Heading -->
+                    <div id="heading">
+                        <h4>Dates and Time</h4>
+                    </div>
+                    <!-- Schedules Event Date Time -->
+                    <div id="event">
+                        <!--Table for schedule-->
+                        <table>
+                            <!--table heading-->
+                            <tr>
+                                <th width="40%">Events</th>
+                                <th width="30%">Date</th>
+                                <th width="60%">Time</th>  
+                            </tr>
+                            <!--Eminem event-->
+                            <tr>
+                                <td>
+                                    <p class="uni">Rap Music</p>
+                                    <p class="team">Eminem</p>
+                                </td>
+                                <td>16-Sep-19</td>
+                                <td>3:00P.M-5:00P.M</td>
+                            </tr>
+                             <!--Drake event-->
+                            <tr>
+                                <td>
+                                    <p class="uni">Rap Music</p>
+                                    <p class="team">Drake</p>
+                                </td>
+                                <td>16-Sep-19</td>
+                                <td>7:00P.M-9:00P.M</td>  
+                            </tr>
+                             <!--Wayne event-->
+                            <tr>
+                                <td>
+                                    <p class="uni">Jazz Music</p>
+                                    <p class="team">Wayne Shorter </p>
+                                </td>
+                                <td>17-Sep-19</td>
+                                <td>3:00P.M-5:00P.M</td>  
+                            </tr>
+                             <!--Joshua event-->
+                            <tr>
+                                <td>
+                                    <p class="uni">Jazz Music</p>
+                                    <p class="team">Joshua Redman</p>
+                                </td>
+                                <td>18-Sep-19</td>
+                                <td>8:00P.M-9:00P.M</td>  
+                            </tr>
+                              <!--Ash event-->
+							<tr>
+                                <td>
+                                    <p class="uni">Blues Music</p>
+                                    <p class="team">Ash Wilson</p>
+                                </td>
+                                <td>19-Sep-19</td>
+                                <td>5:00P.M-7:00P.M</td>  
+                            </tr>
+                                 <!--Eric event-->
+							<tr>
+                                <td>
+                                    <p class="uni">Blues Music</p>
+                                    <p class="team">Eric Gales</p>
+                                </td>
+                                <td>19-Sep-19</td>
+                                <td>8:00P.M-9:00P.M</td>   
+                            </tr>
+                                 <!--Hardwell event-->
+							<tr>
+                                <td>
+                                    <p class="uni">Dj Party</p>
+                                    <p class="team">Hardwell</p>
+                                </td>
+                                <td>20-Sep-19</td>
+                                <td>8:00P.M-9:00P.M</td>   
+                            </tr>
+                                <!--Afrojack event-->
+							<tr>
+                                <td>
+                                    <p class="uni">Dj Party</p>
+                                    <p class="team">Afrojack</p>
+                                </td>
+                                <td>21-Sep-19</td>
+                                <td>8:00P.M-9:00P.M</td>   
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!-- Facebook -->
+                    <div id="facebook" class="social-media">
+                        <i class="fa fa-facebook-square"></i> Like Our Facebook Page
+                        
+                        <a href="#"><i class="fa fa-thumbs-o-up"></i> Like</a>
+                    </div>
+                    
+                    <!-- Instagram -->
+                    <div id="instagram" class="social-media">
+                        <i class="fa fa-instagram"></i> Follow Us on Instagram
+                        
+                        <a href="#"><i class="fa fa-thumbs-o-up"></i> </a>
+                    </div>
+                    
+                    <!-- Meet The Performers -->
+                    <div id="heading">
+                        <h2>Meet The Performers</h2>
+                    </div>
+                    
+                    <!-- Performing Team -->
+                    <div id="team">
+                        <!-- Performer Eminem -->
+                        <div class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/emi.jpg" alt="rap god" />
+                            </div>
+            
+                            <div class="col-sm-8">
+                                <h5>Rap Performer</h5>
+                                <h4>Eminem</h4>   
+                            </div>
+                        </div>
+                        
+                        <!-- Performer Drake -->
+                        <div class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/drake.jpg" alt="rap performer" />
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <h5>Rap Performer</h5>
+                                <h4>Drake</h4>   
+                            </div>
+                        </div>
+                        
+                        <!-- Performer Wayne -->
+                        <div class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/wayne.jpg" alt="waybne" />
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <h5>Jazz Performer</h5>
+                                <h4>Wayne Shorter</h4>  
+                            </div>
+                        </div>
+
+                        <!--Performer Josh-->
+                          <div class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/josh.jpg" alt="josh" />
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <h5>Jazz Performer</h5>
+                                <h4>Joshua Redman</h4>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Performer Eric -->
+                        <div id="eric" class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/eric.jpg" alt="eric" />
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <h5>Blues Performer</h5>
+                                <h4>Eric Gales</h4>    
+                            </div>
+
+
+							<!--Perfromer Ash-->
+                        </div>
+						  <div class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/ash.jpg" alt="ash" />
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <h5>Blues Performer</h5>
+                                <h4>Ash Wilson</h4>  
+                            </div>
+                        </div>
+
+                           <!--Performer Hardwell-->
+						  <div class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/hard.jpg" alt="hardwell" />
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <h5>DJ</h5>
+                                <h4>Hardwell</h4>
+                            </div>
+                        </div>
+
+                        <!--Performer Afrojack-->
+						  <div class="member row">
+                            <div class="col-sm-4">
+                                <img src="images/team/afro.jpg" alt="afro" />
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <h5>DJ</h5>
+                                <h4>Afro Jack</h4>   
+                            </div>
+							
+                        </div>
+						
+                    </div>	
+					
+                </div>
+				
+	         </div>
+			 
+                     <!-- Footer -->
+        <footer>  
+                <p><u><font color = "white">Address: 1234 BHBL Miami,FL Phonne-333444333</p></u>
+				<p>&copy 2018</p>
+  <p>Contact information: <a href="mailto:ultra@mf.com">
+  ultra@mf.com</a>.</p>
+            
+            </div>    
+        </footer>
+        </div>
+	</body>
+</html>
