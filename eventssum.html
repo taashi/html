@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<!-- Metadata -->
+	<head>
+		<title>Ultra Music Festival - REgistration page</title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Stylesheet Imports (Local and CDN and maps) -->
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		
+		<!-- Script Imports (Local and CDN) --> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+		<script>
+		function secchange()
+{
+var selected_index = oForm.elements["SectionList"].selectedIndex;
+ 
+if(selected_index > 0)
+{
+   var selected_option_value = oForm.elements["SectionList"].options[selected_index].value;
+   var selected_option_text = oForm.elements["SectionList"].options[selected_index].text;
+}
+else
+{
+   alert('Please select a country from the drop down list');
+}
+alert(selected_option_text);
+
+}
+</script>
+		 
+			
+	</head>
+	
+	<!-- Visible Content of the page -->
+	<body>
+		<!-- Navbar --> 
+		<div id="nav">
+		<!--Creating a list of the elements of the navbar-->
+			<ul id="navbar">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class="events"><a href="Events.html">Events</a></li>
+				<li id="register"><a href="Register.htm">Register</a></li>
+			<ul>
+		</div>
+	
+		<!-- Main cover -->
+		<div id="cover">
+            <div id="content">
+                <h1>Register for the big event</h1>      
+            </div>
+		</div>
+		 <!-- Main Events -->
+        
+            <!-- Event Page -->
+
+                <hr>
+                <div id="map-section">
+				<!--form to buy tickets-->
+				 <h2> Fill out your details to buy tickets</h2></div>
+			
+				
+			              Enter the date <input type="date"  value="2018-10-01" /><br>
+						  <!--Dropdown to select number of tickets-->
+						Number of tickets:<select name="wgtmsr" id="wgtmsr">
+				  <option value="1ticket">1</option>
+				  <option value="2tickets">2</option>
+				  <option value="3tickets">3</option>
+				  <option value="4tickets">4</option>
+				  <option value="5tickets">5</option>
+				  <option value="6tickets">6</option>
+				  <option value="7tickets">7</option>
+				  <option value="8tickets">8</option>
+				  <option value="9tickets">9</option>
+				  <option value="10tickets">10</option>
+				</select><br>
+                          Row number 
+						  <select id="RowList">
+            <option value="default"></option>
+        </select>
+		
+						<br>Section number 
+						  <select id="SectionList">
+            <option value="default"><onchange = "secchange();"></option>
+        </select>
+	
+total<input type="text"  STYLE='color=#FFFF00' class="price" id="totalprice" />
+<input type="text" name="txtprice" id="txtprice" class="price" />
+<input type='text' id="totalPrice" />
+<br>
+				<hr>
+				 <!-- Footer -->
+				 <footer>
+                 <p><u><font color = "black">Address: 1234 BHBL Miami,FL Phonne-333444333</p></u>
+				<p>&copy 2018</p>
+  <p>Contact information: <a href="mailto:ultra@mf.com">
+  ultra@mf.com</a>.</p> 
+						    
+					</footer>
+					</hr>
+					
+					<script>
+					var xo = 0;
+					var qt = 0;
+					
+
+			$('#RowList').change(function(){
+  var qty = $('#RowList').val();
+   if( qty>=1 && qty<=5)
+   {
+   x = 75;
+   this.xo = 75;
+   xo = 75;
+    $("#txtprice").val(x);
+	return x;
+   }
+    else if(qty>5 && qty <= 10 )
+   {
+    x = 50;
+	this.xo = 50;
+	xo = 50;
+    $("#txtprice").val(x);
+		return x;
+   }
+    else
+   {
+   var x = 25;
+   this.xo = 25;
+   xo = 25;
+    $("#txtprice").val(x);
+		return x;
+   }
+});
+
+<!-- <!-- <!-- var xo = $('#RowList').change(function(){ -->
+  <!-- var qty = $('#RowList').val();)}; -->
+  
+<!-- var value = JSON.stringify(A); -->
+<!-- $("#totalPrice").val(value); -->
+  <!-- console.log(JSON.stringify(value)); --> --> -->
+
+  
+$('#SectionList').change(function(){
+  var qty = $('#SectionList').val();
+  if(qty <= 200){
+  var qt  = 300;
+  this.qt = 75;
+
+  $("#totalprice").val(qt);
+  
+    var s = xo + qt;
+ $("#totalPrice").val(s);
+  }
+  else if(qty <= 300 && qty > 200) {
+  this.qt = 75;
+  qt = 200;
+ 
+  $("#totalprice").val(qt);
+  var s = xo + qt;
+ $("#totalPrice").val(s);
+  return qt;
+  }
+  else{
+   qt = 100;
+   this.qt = 75;
+
+  $("#totalprice").val(qt);
+    var s = xo + qt;
+ $("#totalPrice").val(s);
+  return qt;
+} 
+});
+function secchange()
+{
+var selected_index = oForm.elements["SectionList"].selectedIndex;
+ 
+if(selected_index > 0)
+{
+   var selected_option_value = oForm.elements["SectionList"].options[selected_index].value;
+   var selected_option_text = oForm.elements["SectionList"].options[selected_index].text;
+}
+else
+{
+   alert('Please select a country from the drop down list');
+}
+alert(selected_option_text);
+
+}
+
+
+
+
+					var row = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];     
+var sel = document.getElementById('RowList');
+for(var i = 0; i < row.length; i++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = row[i];
+    opt.value = row[i];
+    sel.appendChild(opt);
+}
+
+var section = ["101","102","103","104","105","201","202","203","204","205","301","302","303","304","305"];     
+var seli = document.getElementById('SectionList');
+for(var i = 0; i < section.length; i++) {
+    var opti = document.createElement('option');
+    opti.innerHTML = section[i];
+    opti.value = section[i];
+    seli.appendChild(opti);
+}
+
+           
+            
+
+			 
+			 </script>	 
+</form>			 
+	
+        
+        
+		
+
+                                
+				
+				
+	</body>
+</html>

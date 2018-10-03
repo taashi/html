@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<!-- Metadata -->
+	<head>
+		<title>Ultra Music Festival - REgistration page</title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Stylesheet Imports (Local and CDN and maps) -->
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		
+		<!-- Script Imports (Local and CDN) --> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+		 
+			
+	</head>
+	
+	<!-- Visible Content of the page -->
+	<body>
+		<!-- Navbar --> 
+		<div id="nav">
+		<!--Creating a list of the elements of the navbar-->
+			<ul id="navbar">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class="events"><a href="Events.html">Events</a></li>
+				<li id="register"><a href="Register.htm">Register</a></li>
+			<ul>
+		</div>
+	
+		<!-- Main cover -->
+		<div id="cover">
+            <div id="content">
+                <h1>Register for the big event</h1>      
+            </div>
+		</div>
+		 <!-- Main Events -->
+        <div id="panel4" class="container-fluid">
+            <!-- Event Page -->
+            
+		
+     
+                <hr>
+                <div id="map-section">
+				<!--form to buy tickets-->
+				 <h2> Fill out your details to buy tickets</h2>
+				<form action="" id="cakeform" onsubmit="return false;">
+				
+			              <h3>Enter the date</h3> <input type="date"  value="2018-10-01" />
+						  <!--Dropdown to select number of tickets-->
+						<h3>Number of tickets:</h3><select name="wgtmsr" id="wgtmsr">
+				  <option value="1ticket">1</option>
+				  <option value="2tickets">2</option>
+				  <option value="3tickets">3</option>
+				  <option value="4tickets">4</option>
+				  <option value="5tickets">5</option>
+				  <option value="6tickets">6</option>
+				  <option value="7tickets">7</option>
+				  <option value="8tickets">8</option>
+				  <option value="9tickets">9</option>
+				  <option value="10tickets">10</option>
+				</select>
+                          <h3>Row number </h3>
+						  <select id="RowList">
+            <option value="default"></option>
+        </select>
+		
+						<h3>Section number </h3>
+						  <select id="SectionList">
+            <option value="default"></option>
+        </select>
+	
+total<input type="text"  STYLE='color=#FFFF00' class="price" id="totalprice" />
+<input type="text" name="txtprice" id="txtprice" class="price" />
+<input type='text' id="totalPrice" />
+
+
+					<script>
+					
+					
+				$('#RowList').change(function(){
+  var qty = $('#RowList').val();
+  
+   
+   if(qty <= 5 )
+   {
+   var x = 75;
+    $("#txtprice").val(x);
+   }
+    if(qty <= 10 )
+   {
+   var x = 50;
+    $("#txtprice").val(x);
+   }
+    else
+   {
+   var x = 25;
+    $("#txtprice").val(x);
+   }
+  
+  
+});
+
+$('#SectionList').change(function(){
+  var qty = $('#SectionList').val();
+  if(qty <= 200){
+  var qt  = 300;
+
+  $("#totalprice").val(qt);
+  }
+  else if(qty <= 300 && qty > 200) {
+  qt = 200;
+ 
+  $("#totalprice").val(qt);
+  }
+  else{
+   qt = 100;
+
+  $("#totalprice").val(qt);
+} 
+});
+var sum=$("#txtprice").val()+$("#totalprice").val();
+$("#totalPrice").val(sum);
+
+
+
+
+
+					var row = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];     
+var sel = document.getElementById('RowList');
+for(var i = 0; i < row.length; i++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = row[i];
+    opt.value = row[i];
+    sel.appendChild(opt);
+}
+
+var section = ["101","102","103","104","105","201","202","203","204","205","301","302","303","304","305"];     
+var seli = document.getElementById('SectionList');
+for(var i = 0; i < section.length; i++) {
+    var opti = document.createElement('option');
+    opti.innerHTML = section[i];
+    opti.value = section[i];
+    seli.appendChild(opti);
+}
+
+           
+            
+
+			 
+			 </script>	 
+</form>			 
+	
+        
+        
+		
+
+                                
+				
+				<br>
+				<hr>
+				 <!-- Footer -->
+				 <footer>
+                 <p><u><font color = "white">Address: 1234 BHBL Miami,FL Phonne-333444333</p></u>
+				<p>&copy 2018</p>
+  <p>Contact information: <a href="mailto:ultra@mf.com">
+  ultra@mf.com</a>.</p> 
+						</div>    
+					</footer>
+					</hr>
+				</div> 
+               	
+        </div>
+	</body>
+</html>

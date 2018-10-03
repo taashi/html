@@ -2,7 +2,7 @@
 <html>
 	<!-- Metadata -->
 	<head>
-		<title>Ultra Music Festival - REgistration page</title>
+		<title>Ultra Music Festival - REgistration page -v2</title>
 		
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -103,7 +103,7 @@
                 <hr>
                 <div id="map-section">
 				<!--form to buy tickets-->
-				 <h2> Fill out your details to buy tickets</h2>
+				 <h2> Fill out your details to get your tickets</h2>
 				<div id="map" style="width:1200px; height:700px">
 				<form method="get" action="http://www.tipjar.com/cgi-bin/test">
 				<!--<form><form action="http://www.tipjar.com/cgi-bin/test" method = "post">-->
@@ -113,117 +113,19 @@
 				  <input type="text" name="firstname"><br>
 				  <h1>Last name:<br></h1>
 				  <input type="text" name="lastname"><br>
+				  <h1><font color = "white"><br>Total price</h1></font color><input type="text" name="tprice" id="tprice" disabled="disabled"/>
 				  <h1>Email address:<br></h1>
 				  <input type="email" name="email">
 				<h1>Snail mail address:<br></h1>
 				  <input type="text" name="home address"></h1><br> 
-  
-                    <!--Table to buy tickets to select event, number of tickets-->
-					  <div id="event2">
-					  <table class="table table-responsive">
-						 <tr>
-							<th width = "10%">Selection</th>
-                                <th width="40%">Events</th>
-                                <th width="30%">Date</th>
-                                <th width="60%">Time</th>     
-                            </tr>
-                            
-                            <tr>
-							<td><input type = "radio"  name="action" value = "Rap Eminem" ></td>
-                                <td>
-                                    <p class="uni">Rap Music</p>
-                                    <p class="team">Eminem</p>
-                                </td>
-                                <td>16-Sep-19</td>
-                                <td>3:00P.M-5:00P.M</td>
-                            </tr>
-                            
-                            <tr>
-								<td><input type = "radio" name="action" value = "Rap Drake"></td>
-                                <td>
-                                    <p class="uni">Rap Music</p>
-                                    <p class="team">Drake</p>
-                                </td>
-                                <td>16-Sep-19</td>
-                                <td>7:00P.M-9:00P.M</td>
-                            </tr>
-                            
-                            <tr>
-								<td><input type = "radio" name="action" value = "Jazz Wayne"></td>
-                                <td>
-                                    <p class="uni">Jazz Music</p>
-                                    <p class="team">Wayne Shorter </p>
-                                </td>
-                                <td>17-Sep-19</td>
-                                <td>3:00P.M-5:00P.M</td>
-                            </tr>
-                            
-                            <tr>
-								<td><input type = "radio" name="action" value = "Jazz Joshua"></td>
-                                <td>
-                                    <p class="uni">Jazz Music</p>
-                                    <p class="team">Joshua Redman</p>
-                                </td>
-                                <td>18-Sep-19</td>
-                                <td>8:00P.M-9:00P.M</td>
-                            </tr>
-							
-							<tr>
-								<td><input type = "radio" name="action" value = "Blues Ash"></td>
-                                <td>
-                                    <p class="uni">Blues Music</p>
-                                    <p class="team">Ash Wilson</p>
-                                </td>
-                                <td>19-Sep-19</td>
-                                <td>5:00P.M-7:00P.M</td>  
-                            </tr>
-							
-							<tr>
-								<td><input type = "radio" name="action" value = "Blues Eric"></td>
-                                <td>
-                                    <p class="uni">Blues Music</p>
-                                    <p class="team">Eric Gales</p>
-                                </td>
-                                <td>19-Sep-19</td>
-                                <td>8:00P.M-9:00P.M</td>  
-                            </tr>
-							
-							<tr>
-								<td><input type = "radio" name="action" value = "DJ Hardwell"></td>
-                                <td>
-                                    <p class="uni">Dj Party</p>
-                                    <p class="team">Hardwell</p>
-                                </td>
-                                <td>20-Sep-19</td>
-                                <td>8:00P.M-9:00P.M</td>  
-                            </tr>
-							
-							<tr>
-								<td><input type = "radio" name="action" value = "DJ Afrojack"></td>
-                                <td>
-                                    <p class="uni">Dj Party</p>
-                                    <p class="team">Afrojack</p>
-                                </td>
-                                <td>21-Sep-19</td>
-                                <td>8:00P.M-9:00P.M</td>
-                            </tr>
-                        </table>
-						</div>
-						<!--Dropdown to select number of tickets-->
-						<h1>Number of tickets:</h1><select name="wgtmsr" id="wgtmsr">
-				  <option value="1ticket">1</option>
-				  <option value="2tickets">2</option>
-				  <option value="3tickets">3</option>
-				  <option value="4tickets">4</option>
-				</select>
-				  <button class = "bt"><input type="submit" value = "Submit" ></button>
+				  <br><button class = "bt"><input type="submit" value = "Submit" ></button>
 				</form>
 				<br>
 				<hr>
 				 <!-- Footer -->
 				 <footer>
                  <p><u><font color = "white">Address: 1234 BHBL Miami,FL Phonne-333444333</p></u>
-				<p>&copy 2018</p>
+				<p>&copy 2018 - v2</p>
   <p>Contact information: <a href="mailto:ultra@mf.com">
   ultra@mf.com</a>.</p> 
 						</div>    
@@ -232,5 +134,15 @@
 				</div> 
                 </div>	
             </div>
+			
 	</body>
+	<script>
+	function loadTotalPrice()
+	{
+tprice.value = localStorage.getItem("total_price");
+}
+  // Retrieve the users name.
+  document.onload = loadTotalPrice(); 
+ 
+	</script>
 </html>

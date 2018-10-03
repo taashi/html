@@ -151,6 +151,14 @@ float:right;
         background-color: green;
        background-size: 100% 105%;
         background-repeat: no-repeat;
+background-image: url('../images/background/martin.jpg');
+    }
+#panel5 { 
+        height: 700px;
+        background-color: green;
+       background-size: 100% 105%;
+        background-repeat: no-repeat;
+ 
  background-image: url('../images/background/martin.jpg');
     }
 
@@ -221,6 +229,11 @@ float: right,
     #event2 table tr td {
         border-top: 1px solid gray;
         font-size: 0.875em;
+    }
+#event img {
+         width: 100%;
+height:400px;
+
     }
 
 

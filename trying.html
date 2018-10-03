@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<!-- Metadata -->
+	<head>
+		<title>Ultra Music Festival -Events Ticket Page -  Come buy your tickets here -v2</title>
+		
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Stylesheet Imports (Local and CDN and maps) -->
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		
+		<!-- Script Imports (Local and CDN) --> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+	</head>
+	
+	<!-- Visible Content of the page -->
+	<body>
+		<!-- Navbar --> 
+		<div id="nav">
+		<!--Creating a list of the elements of the navbar-->
+			<ul id="navbar">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li class="events"><a href="Events.html">Events</a></li>
+				<li id="register"><a href="Register.htm">Register</a></li>
+			<ul>
+		</div>
+	
+		<!-- Main cover -->
+		<div id="cover">
+            <div id="content">
+                <h1>Register for the big event</h1>      
+            </div>
+		</div>
+		 <!-- Main Events -->
+        
+            <!-- Event Page -->
+
+                
+                <div id="map-sections">
+				<div id="panel5" class="container-fluid">
+				<!--form to buy tickets-->
+				 <h2> Fill out your details to buy tickets</h2>
+			 <div class="col-sm-8">
+				<form id = "info" form method="get" >
+			              <font color = "white"><br>Enter the date</font color> <input type="date"  value="2018-10-01" /><br>
+						  <!--Dropdown to select number of tickets-->
+						<font color = "white"><br>Number of tickets:</font color> <select name="tickets" id="tickets" >
+				  <option value="1ticket">1</option>
+				  <option value="2tickets">2</option>
+				  <option value="3tickets">3</option>
+				  <option value="4tickets">4</option>
+				  <option value="5tickets">5</option>
+				  <option value="6tickets">6</option>
+				  <option value="7tickets">7</option>
+				  <option value="8tickets">8</option>
+				  <option value="9tickets">9</option>
+				  <option value="10tickets">10</option>
+				</select><br>
+                          <font color = "white"><br>rows number </font color>
+						  <select id="rowsList" >
+            
+        </select><br>
+		<font color = "white"><br>sections number </font color>
+						  <select id="sectionsList" >
+           
+        </select><br>
+		<font color = "white"><br>Price of seat</font color><input type="text" name="total_qty" id="total_qty" disabled="disabled"/><br>
+		<br>
+		<font color = "white"><br>Total price</font color><input type="text" name="total_price" id="total_price" /><br>
+		<br><input type="submit" value = "Events ticket summary" onClick="openEventTicketsSummary()"></button>
+			</form>			
+	</div>
+	 <!-- Schedule Table -->
+            <div class="col-sm-4">
+                <div id="standing">
+                    <!-- Schedule Heading -->
+                    <div id="heading">
+                        <h4>seating area</h4>
+                    </div>
+                    <!-- Schedules Event Date Time -->
+                    <div id="event">
+                    <img src="images/background/seat.jpg" alt="Seating" />
+                    </div>
+				</div>
+				</div>
+				<br>
+				 <!-- Footer -->
+				 <footer>
+				 <hr>
+                 <p><u><font color = "white">Address: 1234 BHBL Miami,FL Phonne-333444333</p></u>
+				<p>&copy 2018 - v2</p>
+  <p>Contact information: <a href="mailto:ultra@mf.com">
+  ultra@mf.com</a>.</p> 
+						    
+					</footer>
+					
+		
+	</body>
+	<script>
+
+	function loadComboBoxes()
+	{
+	var rows = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"];     
+var sel = document.getElementById('rowsList');
+for(var i = 0; i < rows.length; i++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = rows[i];
+    opt.value = rows[i];
+    sel.appendChild(opt);
+}
+
+var sections = ["101","102","103","104","105","201","202","203","204","205","301","302","303","304","305"];     
+var seli = document.getElementById('sectionsList');
+for(var j = 0; j < sections.length; j++) {
+    var opti = document.createElement('option');
+    opti.innerHTML = sections[j];
+    opti.value = sections[j];
+    seli.appendChild(opti);
+}
+}
+
+var qty2 = document.getElementById("sectionsList");
+var qty3 = document.getElementById("tickets");
+var qty1 = document.getElementById("rowsList");
+var total_qty = document.getElementById("total_qty");
+var total_price = document.getElementById("total_price");
+
+qty1.onchange = function() {
+var r_value =0;
+var s_value;
+var tkts = parseInt(qty3.value);
+var rows_value = parseInt(qty1.value);
+var sec_value = parseInt(qty2.value);
+if(rows_value<=5)
+{
+r_value = 75;
+}
+else if(rows_value<=10 && rows_value>5)
+{
+r_value = 50;
+}
+else
+{
+r_value = 25;
+}
+if(sec_value<=300 && sec_value>200)
+{
+s_value = 200;
+}
+else if(sec_value<=200 && sec_value>100)
+{
+s_value = 300;
+}
+else
+{
+s_value = 100;
+}
+  var total = r_value + s_value;
+  var price = total * tkts;
+  total_qty.value = total;
+  total_price.value = price;
+}
+qty3.onchange = function() {
+var r_value ;
+var s_value;
+var tkts = parseInt(qty3.value);
+var rows_value = parseInt(qty1.value);
+var sec_value = parseInt(qty2.value);
+if(rows_value<=5)
+{
+r_value = 75;
+}
+else if(rows_value<=10 && rows_value>5)
+{
+r_value = 50;
+}
+else
+{
+r_value = 25;
+}
+if(sec_value<=300 && sec_value>200)
+{
+s_value = 200;
+}
+else if(sec_value<=200 && sec_value>100)
+{
+s_value = 300;
+}
+else
+{
+s_value = 100;
+}
+  var total = r_value + s_value;
+  var price = total * tkts;
+  total_qty.value = total;
+  total_price.value = price;
+}
+qty2.onchange = function() {
+var r_value;
+var s_value=0;
+var tkts = parseInt(qty3.value);
+var rows_value = parseInt(qty1.value);
+var sec_value = parseInt(qty2.value);
+if(rows_value<=5)
+{
+r_value = 75;
+}
+else if(rows_value<=10 && rows_value>5)
+{
+r_value = 50;
+}
+else
+{
+r_value = 25;
+}
+if(sec_value<=300 && sec_value>200)
+{
+s_value = 200;
+}
+else if(sec_value<=200 && sec_value>100)
+{
+s_value = 300;
+}
+else
+{
+s_value = 100;
+}
+  var total = r_value + s_value;
+  var price = total * tkts;
+  total_qty.value = total;
+   total_price.value = price;
+}
+
+function openEventTicketsSummary() {
+
+  // Check for LocalStorage support.
+  if (localStorage) {
+
+    // Add an event listener for form submissions
+    document.getElementById('info').addEventListener('submit', function openEventTicketsSummary() {
+      // Get the value of the name field.
+      var name = document.getElementById('total_price').value;
+
+      // Save the name in localStorage.
+      localStorage.setItem('total_price', name);
+
+	  var url = "Register.htm";
+window.open(url);
+    });
+
+  }
+
+}
+
+</script>
+<script> document.onload = loadComboBoxes();</script>
+</html>
